@@ -4,17 +4,16 @@
 using namespace std;
 using namespace cv;
 
-/*
+
 int main() {
 	Mat A;
 	A = imread("d:/kimminsuByeongsin.jpg", IMREAD_COLOR);
 
 	Rect r(10, 10, 100, 100);
-	Mat D = A(r); // ¾èÀº º¹»ç
+	Mat D = A(r); // ì–•ì€ ë³µì‚¬
 
-	D = Scalar(0, 0, 255); // °ü½É ¿µ¿ªÀÇ ¸ğµç È­¼Ò°¡ 0, 0, 0ÀÌ µÈ´Ù
+	D = Scalar(0, 0, 255); // ê´€ì‹¬ ì˜ì—­ì˜ ëª¨ë“  í™”ì†Œê°€ 0, 0, 0ì´ ëœë‹¤
 	imshow("src", A);
 	waitKey(0);
 	return 0;
 }
-*/
