@@ -11,15 +11,15 @@ void Error(Mat img) {
 }
 
 /*
-¾èÀº º¹»ç : Mat B = A;
-±íÀº º¹»ç : Mat B = A.clone();
+ì–•ì€ ë³µì‚¬ : Mat B = A;
+ê¹Šì€ ë³µì‚¬ : Mat B = A.clone();
 */
 
-/*
+
 int main() {
 	Mat a = imread("d:/kimminsuByeongsin.jpg");
-	//Mat b = a; // ¾èÀº º¹»ç
-	Mat b = a.clone(); // ±íÀº º¹»ç
+	//Mat b = a; // ì–•ì€ ë³µì‚¬
+	Mat b = a.clone(); // ê¹Šì€ ë³µì‚¬
 
 	imshow("origin", a);
 
@@ -29,4 +29,3 @@ int main() {
 	waitKey(0);
 	return 0;
 }
-*/
