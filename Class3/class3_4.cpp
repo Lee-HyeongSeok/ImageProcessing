@@ -4,7 +4,7 @@
 using namespace std;
 using namespace cv;
 
-/*
+
 int main() {
 	Mat m = imread("d:/bash.png");
 	//Mat logo = imread("d:/icon_graphic1.png");
@@ -18,4 +18,3 @@ int main() {
 	return 0;
 }
 
-*/
