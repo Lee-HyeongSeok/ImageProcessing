@@ -6,7 +6,7 @@ using namespace std;
 using namespace cv;
 
 int main() {
-	Mat src = imread("d:/kimminsuByeongsin.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread("d:/image.jpg", IMREAD_GRAYSCALE);
 
 	imshow("input image", src);
 	int histogram[256] = { 0 }; // 히스토그램을 담을 수 있는 배열을 만든다. 0~255까지
