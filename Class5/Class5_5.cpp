@@ -1,4 +1,4 @@
-/*
+
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
@@ -8,30 +8,30 @@ using namespace cv;
 int main() {
 	Mat src = imread("d:/kimminsuByeongsin.jpg", IMREAD_COLOR);
 
-	vector<Mat> bgr_planes; // ¿µ»óµéÀÇ º¤ÅÍ
+	vector<Mat> bgr_planes; // ì˜ìƒë“¤ì˜ ë²¡í„°
 	
-	// ÀÔ·Â ¿µ»óÀ» »ö»óº°·Î ºĞ¸®ÇÑ´Ù.
-	// opencv split : ¾î¶² ¿µ»óÀÇ Ã¤³ÎÀÌ ¿©·¯°³ÀÏ ¶§ ÇØ´çÇÏ´Â Ã¤³Î¸¸Å­ »ö»óÀ» ºĞ¸®ÇÔ
+	// ì…ë ¥ ì˜ìƒì„ ìƒ‰ìƒë³„ë¡œ ë¶„ë¦¬í•œë‹¤.
+	// opencv split : ì–´ë–¤ ì˜ìƒì˜ ì±„ë„ì´ ì—¬ëŸ¬ê°œì¼ ë•Œ í•´ë‹¹í•˜ëŠ” ì±„ë„ë§Œí¼ ìƒ‰ìƒì„ ë¶„ë¦¬í•¨
 	split(src, bgr_planes); 
 
-	int histSize = 256; // È÷½ºÅä±×·¥¿¡¼­ »ç¿ëµÇ´Â »óÀÚÀÇ °³¼ö
-	float range[] = { 0, 256 }; // È­¼Ò°ªÀÇ ¹üÀ§
+	int histSize = 256; // íˆìŠ¤í† ê·¸ë¨ì—ì„œ ì‚¬ìš©ë˜ëŠ” ìƒìì˜ ê°œìˆ˜
+	float range[] = { 0, 256 }; // í™”ì†Œê°’ì˜ ë²”ìœ„
 	const float* histRange = { range };
 	bool uniform = true, accumulate = false;
-	Mat b_hist, g_hist, r_hist; // ºĞ¸®µÈ »öÀ» ¹Ş±âÀ§ÇÑ ¸ÅÆ®¸¯½º
+	Mat b_hist, g_hist, r_hist; // ë¶„ë¦¬ëœ ìƒ‰ì„ ë°›ê¸°ìœ„í•œ ë§¤íŠ¸ë¦­ìŠ¤
 
-	// 3°³ÀÇ Ã¤³Î·Î ºĞ¸®
-	// 1Àº µğ¸à¼Ç
+	// 3ê°œì˜ ì±„ë„ë¡œ ë¶„ë¦¬
+	// 1ì€ ë””ë©˜ì…˜
 	calcHist(&bgr_planes[0], 1, 0, Mat(), b_hist, 1, &histSize, &histRange, uniform, accumulate);
 	calcHist(&bgr_planes[1], 1, 0, Mat(), g_hist, 1, &histSize, &histRange, uniform, accumulate);
 	calcHist(&bgr_planes[2], 1, 0, Mat(), r_hist, 1, &histSize, &histRange, uniform, accumulate);
 
-	// ¸·´ë ±×·¡ÇÁ°¡ ±×·ÁÁö´Â ¿µ»ó »ı¼º
+	// ë§‰ëŒ€ ê·¸ë˜í”„ê°€ ê·¸ë ¤ì§€ëŠ” ì˜ìƒ ìƒì„±
 	int hist_w = 512, hist_h = 400;
 	int bin_w = cvRound((double)hist_w / histSize);
 	Mat histImage(hist_h, hist_w, CV_8UC3, Scalar(0, 0, 0));
 
-	// °ªµéÀÌ ¿µ»óÀ» ¹ş¾î³ªÁö ¸øÇÏµµ·Ï Á¤±ÔÈ­ÇÑ´Ù.
+	// ê°’ë“¤ì´ ì˜ìƒì„ ë²—ì–´ë‚˜ì§€ ëª»í•˜ë„ë¡ ì •ê·œí™”í•œë‹¤.
 	normalize(b_hist, b_hist, 0, histImage.rows, NORM_MINMAX, -1, Mat());
 	normalize(g_hist, g_hist, 0, histImage.rows, NORM_MINMAX, -1, Mat());
 	normalize(r_hist, r_hist, 0, histImage.rows, NORM_MINMAX, -1, Mat());
@@ -47,9 +47,8 @@ int main() {
 	imshow("input image", src);
 	imshow("color histogram", histImage);
 
-	// ¼ÂÁß¿¡ ÇÏ³ª¸¸ ³²±â¸é ¿øÇÏ´Â »ö»ó ÃßÃâ°¡´É
+	// ì…‹ì¤‘ì— í•˜ë‚˜ë§Œ ë‚¨ê¸°ë©´ ì›í•˜ëŠ” ìƒ‰ìƒ ì¶”ì¶œê°€ëŠ¥
 
 	waitKey(0);
 	return 0;
 }
-*/
