@@ -1,4 +1,4 @@
-/*
+
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
@@ -12,13 +12,12 @@ int main() {
 	imshow("image", src);
 
 	Mat threshold_image;
-	// ÀÏÁ¤ °ª(ÀÓ°è°ª)À» ±âÁØÀ¸·Î 100 ÀÌÇÏÀÇ È­¼Ò°ªÀº ±×´ë·Î, ÀÌ»óÀº Á¦°ÅÇÑ´Ù.
+	// ì¼ì • ê°’(ì„ê³„ê°’)ì„ ê¸°ì¤€ìœ¼ë¡œ 100 ì´í•˜ì˜ í™”ì†Œê°’ì€ ê·¸ëŒ€ë¡œ, ì´ìƒì€ ì œê±°í•œë‹¤.
 	// threshold(src, threshold_image, 100, 255, THRESH_BINARY);
 	
-	// CV_THRESH_OTSU : ÀÌ ¿É¼ÇÀ» ÁÖ°ÔµÇ¸é ÀÚµ¿À¸·Î ¾îµÎ¿î ºÎºĞ°ú ¹àÀº ºÎºĞÀÇ °æ°è°ªÀ» Ã£¾Æ³½´Ù.
+	// CV_THRESH_OTSU : ì´ ì˜µì…˜ì„ ì£¼ê²Œë˜ë©´ ìë™ìœ¼ë¡œ ì–´ë‘ìš´ ë¶€ë¶„ê³¼ ë°ì€ ë¶€ë¶„ì˜ ê²½ê³„ê°’ì„ ì°¾ì•„ë‚¸ë‹¤.
 	threshold(src, threshold_image, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
 	imshow("Threshold", threshold_image);
 	waitKey(0);
 	return 0;
 }
-*/
