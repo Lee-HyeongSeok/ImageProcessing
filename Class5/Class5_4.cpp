@@ -1,21 +1,21 @@
-/*
+
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
 using namespace std;
 using namespace cv;
 
-// È÷½ºÅä±×·¥À» ±×¸®´Â ÇÔ¼ö
+// íˆìŠ¤í† ê·¸ë¨ì„ ê·¸ë¦¬ëŠ” í•¨ìˆ˜
 
 void drawHistogram(int histogram[]) {
-	int hist_w = 512; // È÷½ºÅä±×·¥ÀÇ ³ôÀÌ
-	int hist_h = 400; // È÷½ºÅä±×·¥ÀÇ ³ĞÀÌ
+	int hist_w = 512; // íˆìŠ¤í† ê·¸ë¨ì˜ ë†’ì´
+	int hist_h = 400; // íˆìŠ¤í† ê·¸ë¨ì˜ ë„“ì´
 	int bin_w = cvRound((double)hist_w / 256);
 
-	// È÷½ºÅä±×·¥ÀÌ ±×·ÁÁö´Â ¿µ»ó, ÄÃ·¯·Î Á¤ÀÇ
+	// íˆìŠ¤í† ê·¸ë¨ì´ ê·¸ë ¤ì§€ëŠ” ì˜ìƒ, ì»¬ëŸ¬ë¡œ ì •ì˜
 	Mat histImage(hist_h, hist_w, CV_8UC3, Scalar(255, 255, 255));
 
-	// È÷½ºÅä±×·¥¿¡¼­ ÃÖ´ë°ªÀ» Ã£´Â´Ù.
+	// íˆìŠ¤í† ê·¸ë¨ì—ì„œ ìµœëŒ€ê°’ì„ ì°¾ëŠ”ë‹¤.
 	int max = histogram[0];
 	for (int i = 1; i < 256; i++) {
 		if (max < histogram[i])
@@ -38,8 +38,8 @@ int main() {
 
 	int histogram[256] = { 0 };
 
-	// È÷½ºÅä±×·¥ ¸¸µé±â
-	// ÁÂÇ¥¿¡ ¸Â´Â ÇÈ¼¿ °ªÀ» ¹Ş¾Æ¿Í¼­ È÷½ºÅä±×·¥ ¹è¿­¿¡ »ğÀÔÇÑ´Ù.
+	// íˆìŠ¤í† ê·¸ë¨ ë§Œë“¤ê¸°
+	// ì¢Œí‘œì— ë§ëŠ” í”½ì…€ ê°’ì„ ë°›ì•„ì™€ì„œ íˆìŠ¤í† ê·¸ë¨ ë°°ì—´ì— ì‚½ì…í•œë‹¤.
 	for (int y = 0; y < src.rows; y++) {
 		for (int x = 0; x < src.cols; x++) {
 			histogram[(int)src.at<uchar>(y, x)]++;
@@ -50,4 +50,3 @@ int main() {
 	waitKey(0);
 	return 0;
 }
-*/
