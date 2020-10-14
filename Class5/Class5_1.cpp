@@ -1,21 +1,20 @@
-/*
+
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
 using namespace std;
 using namespace cv;
 
-// »çÁø °æ·Î : d:/kimminsuByeongsin.jpg
+// ì‚¬ì§„ ê²½ë¡œ : d:/kimminsuByeongsin.jpg
 
 int main() {
-	Mat src = imread("d:/kimminsuByeongsin.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread("d:/image.jpg", IMREAD_GRAYSCALE);
 	
 	Mat dst;
-	equalizeHist(src, dst); // ¿µ»óÀÇ ºĞÆ÷¸¦ °¡Á®¿Í¼­ È­¼Ò°ª º¯È¯
+	equalizeHist(src, dst); // ì˜ìƒì˜ ë¶„í¬ë¥¼ ê°€ì ¸ì™€ì„œ í™”ì†Œê°’ ë³€í™˜
 
 	imshow("origin", src);
 	imshow("equal", dst);
 	waitKey(0);
 	return 0;
 }
-*/
