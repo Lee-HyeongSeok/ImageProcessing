@@ -33,7 +33,7 @@ void drawHistogram(int histogram[]) {
 	imshow("histogram", histImage);
 }
 int main() {
-	Mat src = imread("d:/kimminsuByeongsin.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread("d:/image.jpg", IMREAD_GRAYSCALE);
 	imshow("input image", src);
 
 	int histogram[256] = { 0 };
