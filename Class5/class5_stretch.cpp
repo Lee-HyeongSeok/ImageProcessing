@@ -6,14 +6,14 @@ using namespace std;
 using namespace cv;
 
 Mat drawHistogram(int histogram[]) {
-	int hist_w = 512; // È÷½ºÅä±×·¥ÀÇ ³ôÀÌ
-	int hist_h = 400; // È÷½ºÅä±×·¥ÀÇ ³ĞÀÌ
+	int hist_w = 512; // íˆìŠ¤í† ê·¸ë¨ì˜ ë†’ì´
+	int hist_h = 400; // íˆìŠ¤í† ê·¸ë¨ì˜ ë„“ì´
 	int bin_w = cvRound((double)hist_w / 256);
 
-	// È÷½ºÅä±×·¥ÀÌ ±×·ÁÁö´Â ¿µ»ó, ÄÃ·¯·Î Á¤ÀÇ
+	// íˆìŠ¤í† ê·¸ë¨ì´ ê·¸ë ¤ì§€ëŠ” ì˜ìƒ, ì»¬ëŸ¬ë¡œ ì •ì˜
 	Mat histImage(hist_h, hist_w, CV_8UC3, Scalar(255, 255, 255));
 
-	// È÷½ºÅä±×·¥¿¡¼­ ÃÖ´ë°ªÀ» Ã£´Â´Ù.
+	// íˆìŠ¤í† ê·¸ë¨ì—ì„œ ìµœëŒ€ê°’ì„ ì°¾ëŠ”ë‹¤.
 	int max = histogram[0];
 	for (int i = 1; i < 256; i++) {
 		if (max < histogram[i])
@@ -29,16 +29,16 @@ Mat drawHistogram(int histogram[]) {
 			Scalar(0, 0, 255));
 	}
 	
-	return histImage; // È÷½ºÅä±×·¥À» ±×¸° ¸ÅÆ®¸¯½º¸¦ ¹İÈ¯
+	return histImage; // íˆìŠ¤í† ê·¸ë¨ì„ ê·¸ë¦° ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ë°˜í™˜
 }
 
-// È÷½ºÅä±×·¥ÀÇ ½ºÆ®·¡Ä¡ ÇÔ¼ö
+// íˆìŠ¤í† ê·¸ë¨ì˜ ìŠ¤íŠ¸ë˜ì¹˜ í•¨ìˆ˜
 int stretch(int x, int r1, int s1, int r2, int s2) {
 	float result;
 	if (0 <= x && x <= r1) {
 		result = x * s1 / r1;
 	}
-	else if (r1 < x && x <= r2) { // ±â¿ï±â
+	else if (r1 < x && x <= r2) { // ê¸°ìš¸ê¸°
 		result = (x - r1)*(s2 - s1) / (r2 - r1) + s1;
 	}
 	else if (r2 < x && x <= 255) {
@@ -56,10 +56,10 @@ int main() {
 	Mat hist1, hist2;
 
 	int r1, s1, r2, s2;
-	cout << "r1 ÀÔ·Â : "; cin >> r1;
-	cout << "r2 ÀÔ·Â : "; cin >> r2;
-	cout << "s1 ÀÔ·Â : "; cin >> s1;
-	cout << "s2 ÀÔ·Â : "; cin >> s2;
+	cout << "r1 ì…ë ¥ : "; cin >> r1;
+	cout << "r2 ì…ë ¥ : "; cin >> r2;
+	cout << "s1 ì…ë ¥ : "; cin >> s1;
+	cout << "s2 ì…ë ¥ : "; cin >> s2;
 
 	for (int y = 0; y < image.rows; y++) {
 		for (int x = 0; x < image.cols; x++) {
@@ -70,23 +70,23 @@ int main() {
 		}
 	}
 
-	// ÇÈ¼¿ÀÇ °ªÀ» È÷½ºÅä±×·¥ ¹è¿­¿¡ ¸î°³°¡ ÀÖ´ÂÁö Ä«¿îÆÃ
+	// í”½ì…€ì˜ ê°’ì„ íˆìŠ¤í† ê·¸ë¨ ë°°ì—´ì— ëª‡ê°œê°€ ìˆëŠ”ì§€ ì¹´ìš´íŒ…
 	for (int y = 0; y < image.rows; y++) {
 		for (int x = 0; x < image.cols; x++) {
 			histogram_origin[(int)image.at<uchar>(y, x)]++;
 		}
 	}
 
-	hist1 = drawHistogram(histogram_origin); // »çÁø¿¡ ´ëÇÑ È÷½ºÅä±×·¥ ¹Ş¾Æ¿À±â
+	hist1 = drawHistogram(histogram_origin); // ì‚¬ì§„ì— ëŒ€í•œ íˆìŠ¤í† ê·¸ë¨ ë°›ì•„ì˜¤ê¸°
 
-	// ÇÈ¼¿ÀÇ °ªÀ» È÷½ºÅä±×·¥ ¹è¿­¿¡ ¸î°³°¡ ÀÖ´ÂÁö Ä«¿îÆÃ
+	// í”½ì…€ì˜ ê°’ì„ íˆìŠ¤í† ê·¸ë¨ ë°°ì—´ì— ëª‡ê°œê°€ ìˆëŠ”ì§€ ì¹´ìš´íŒ…
 	for (int y = 0; y < new_image.rows; y++) {
 		for (int x = 0; x < new_image.cols; x++) {
 			histogram_new[(int)new_image.at<uchar>(y, x)]++;
 		}
 	}
 
-	hist2 = drawHistogram(histogram_new); // »çÁø¿¡ ´ëÇÑ È÷½ºÅä±×·¥ ¹Ş¾Æ¿À±â
+	hist2 = drawHistogram(histogram_new); // ì‚¬ì§„ì— ëŒ€í•œ íˆìŠ¤í† ê·¸ë¨ ë°›ì•„ì˜¤ê¸°
 
 	imshow("origin histogram", hist1);
 	imshow("new histogram", hist2);
@@ -95,3 +95,4 @@ int main() {
 	waitKey(0);
 	return 0;
 }
+
