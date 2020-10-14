@@ -7,7 +7,7 @@ using namespace cv;
 int main() {
 	Mat src, dst;
 
-	src = imread("d:/kimminsuByeongsin.jpg", IMREAD_GRAYSCALE);
+	src = imread("d:/image.jpg", IMREAD_GRAYSCALE);
 	imshow("image", src);
 
 	Mat threshold_image;
