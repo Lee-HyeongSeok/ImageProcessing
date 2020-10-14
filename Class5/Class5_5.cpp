@@ -6,7 +6,7 @@ using namespace std;
 using namespace cv;
 
 int main() {
-	Mat src = imread("d:/kimminsuByeongsin.jpg", IMREAD_COLOR);
+	Mat src = imread("d:/image.jpg", IMREAD_COLOR);
 
 	vector<Mat> bgr_planes; // 영상들의 벡터
 	
