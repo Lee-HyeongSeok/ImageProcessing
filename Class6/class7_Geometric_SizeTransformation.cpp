@@ -1,4 +1,4 @@
-/*#include <opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <iostream>
 #include <math.h>
 
@@ -9,7 +9,7 @@ int main() {
 	Mat src = imread("d:/bash.png", IMREAD_COLOR);
 	Mat dst = Mat();
 
-	// ÆòÇàÀÌµ¿À» angle°ªÀ» ÀÌ¿ëÇÏ¿© getRotationMatrix2D() ÇÔ¼ö¸¦ ±¸ÇöÇß´Ù.
+	// í‰í–‰ì´ë™ì„ angleê°’ì„ ì´ìš©í•˜ì—¬ getRotationMatrix2D() í•¨ìˆ˜ë¥¼ êµ¬í˜„í–ˆë‹¤.
 	float angle = sqrt(2) / 2;
 
 	int tx = 0;
@@ -24,4 +24,3 @@ int main() {
 	waitKey(0);
 	return 1;
 }
-*/
