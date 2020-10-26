@@ -1,18 +1,20 @@
-/*#include <opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <iostream>
 
 using namespace std;
 using namespace cv;
 
+// ì˜ìƒì„ ì²˜ë¦¬í•˜ê¸° ìœ„í•´ ë³€í™˜ ì „ ì¢Œí‘œì™€ ë³€í™˜ í›„ ì¢Œí‘œì˜ ê¸°ìš¸ê¸°ë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜
 float Lerp(float s, float e, float t) {
 	return s + (e - s)*t;
 }
 
-// x¸ÕÀú ±¸ÇÏ°í yÀÇ Á¡À» ±¸ÇØ¼­ input ÀÌ¹ÌÁöÀÇ ÇÈ¼¿ »çÀÌ °ªÀ» À¯Ãß
+// xë¨¼ì € êµ¬í•˜ê³  yì˜ ì ì„ êµ¬í•´ì„œ input ì´ë¯¸ì§€ì˜ í”½ì…€ ì‚¬ì´ ê°’ì„ ìœ ì¶”
 float Blerp(float c00, float c10, float c01, float c11, float tx, float ty) {
 	return Lerp(Lerp(c00, c10, tx), Lerp(c01, 11, tx), ty);
 }
 
+// í•´ë‹¹ ì¢Œí‘œì˜ í”½ì…€ ê°’ì„ ë¦¬í„´í•´ì£¼ëŠ” í•¨ìˆ˜
 float GetPixel(Mat img, int x, int y) {
 	if (x > 0 && y > 0 && x < img.cols && y < img.rows)
 		return (float)(img.at<uchar>(y, x));
@@ -25,16 +27,17 @@ int main() {
 
 	for (int y = 0; y < dst.rows; y++) {
 		for (int x = 0; x < dst.cols; x++) {
-			float gx = ((float)x) / 2.0;
-			float gy = ((float)y) / 2.0; // ¿ä±â±îÁö¸¸ ÇÏ¸é ÃÖ±ÙÁ¢ º¸°£¹ýÀÌ´Ù.
-			int gxi = (int)gx;
+			float gx = ((float)x) / 2.0; // í”½ì…€ í¬ê¸° ì¡°ì ˆ í›„ ì¢Œí‘œ
+			float gy = ((float)y) / 2.0; // ìš”ê¸°ê¹Œì§€ë§Œ í•˜ë©´ ìµœê·¼ì ‘ ë³´ê°„ë²•ì´ë‹¤.
+			int gxi = (int)gx; // í”½ì…€ í¬ê¸° ì¡°ì ˆ ì „ ì¢Œí‘œ
 			int gyi = (int)gy;
 
-			float c00 = GetPixel(src, gxi, gyi); // c(0, 0)ÀÇ °ªÀ» °¡Á®¿À´Â ÀÇ¹Ì
+			float c00 = GetPixel(src, gxi, gyi); // c(0, 0)ì˜ ê°’ì„ ê°€ì ¸ì˜¤ëŠ” ì˜ë¯¸
 			float c10 = GetPixel(src, gxi + 1, gyi);
 			float c01 = GetPixel(src, gxi, gyi + 1);
 			float c11 = GetPixel(src, gxi + 1, gyi + 1);
 
+			// c00, c10, c01, c11-> ë‹¨ìœ„ í–‰ë ¬
 			int value = (int)Blerp(c00, c10, c01, c11, gx - gxi, gy - gyi);
 			dst.at<uchar>(y, x) = value;
 		}
@@ -45,4 +48,3 @@ int main() {
 	waitKey(0);
 	return 0;
 }
-*/
