@@ -1,4 +1,4 @@
-/*#include <opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <iostream>
 
 using namespace std;
@@ -11,15 +11,14 @@ int main() {
 
 	Size dsize = Size(src.cols, src.rows);
 
-	// ¿øº» ¿µ»óÀÇ ¼¾ÅÍ °ªÀ» Æ÷ÀÎÆ® °´Ã¼·Î ÀúÀå
+	// ì›ë³¸ ì˜ìƒì˜ ì„¼í„° ê°’ì„ í¬ì¸íŠ¸ ê°ì²´ë¡œ ì €ì¥
 	Point center = Point(src.cols / 2.0, src.rows / 2.0);
-	Mat M = getRotationMatrix2D(center, 45, 1.0); // ¼¾ÅÍ ÁÂÇ¥¸¦ ±âÁØÀ¸·Î 45µµ È¸Àü
+	Mat M = getRotationMatrix2D(center, 45, 1.0); // ì„¼í„° ì¢Œí‘œë¥¼ ê¸°ì¤€ìœ¼ë¡œ 45ë„ íšŒì „
 
-	warpAffine(src, dst, M, dsize, INTER_LINEAR); // º¸°£¹ı ¼³Á¤
+	warpAffine(src, dst, M, dsize, INTER_LINEAR); // ë³´ê°„ë²• ì„¤ì •
 
 	imshow("origin", src);
 	imshow("new", dst);
 	waitKey(0);
 	return 1;
 }
-*/
