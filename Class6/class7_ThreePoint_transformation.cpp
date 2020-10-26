@@ -13,5 +13,5 @@ int main() {
 	Mat warp_dst;
 	warp_dst = Mat::zeros(src.rows, src.cols, src.type());
 
-	srcTri[0] = Point2f(0, 0); // �̾
+	srcTri[0] = Point2f(0, 0); 
 }
