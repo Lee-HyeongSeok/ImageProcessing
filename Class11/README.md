@@ -15,4 +15,21 @@
 		* y = mc + c를 통해 하나의 점을 지나는 무수한 직선을 찾을 수 있다.   
 		* ex) 두 개의 점에서 나오는 직선을 2차원 그래프 상 나타낼 때 교차점이 이어지는 직선일 확률이 높다.   
 ![허프 1차원적 직선](https://user-images.githubusercontent.com/55940552/101278417-763f1a80-37fe-11eb-8b92-41ee566d37f6.PNG)   
-![허프2차원적 직선](https://user-images.githubusercontent.com/55940552/101278418-77704780-37fe-11eb-9438-8e44f1c68c11.PNG)
+![허프2차원적 직선](https://user-images.githubusercontent.com/55940552/101278418-77704780-37fe-11eb-9438-8e44f1c68c11.PNG)   
+
+#### 2. 원형 허프 변환   
+		* 설정한 범위에 속하는 원을 모두 찾는다.   
+		* 반지름 r과 범위가 주어져야 한다.   
+
+![원형 허프 변환 결과](https://user-images.githubusercontent.com/55940552/101278758-1007c700-3801-11eb-96c4-063365ac5e46.PNG)   
+
+#### 3. 해리스 코너 검출   
+		* 디지털 이미지는 픽셀들의 집합으로 구성, 그 점들 중 가장 중요한 점들은 코너점들이다.   
+		* 코너점 : 두 방향 이상에서 변화가 급격한 점을 말한다.   
+		* 엣지점 : 한 방향에서 변화가 급격한 점이다.   
+		* 코너와 엣지점이 아닌 점들은 평탄한 점이라 한다.   
+![ㅋㄴ1](https://user-images.githubusercontent.com/55940552/101278843-7db3f300-3801-11eb-9422-49ef7b599db1.PNG)   
+![ㅋㄴ2](https://user-images.githubusercontent.com/55940552/101278845-7e4c8980-3801-11eb-958b-fc783c88f2fe.PNG)   
+
+#### 해리스 코너 검출 결과   
+![ㅋㄴ3](https://user-images.githubusercontent.com/55940552/101278874-ab993780-3801-11eb-848f-efb2f9631791.PNG)   
