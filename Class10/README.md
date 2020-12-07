@@ -26,8 +26,7 @@
 				* 이 부분에서 각 클러스터들 사이 영역이 나뉘어 진다.   
 		4. 클러스터링 수렴까지 2, 3단계를 반복한다.   
 ![1](https://user-images.githubusercontent.com/55940552/101288907-752cde00-383c-11eb-96e5-50a281a6fec3.PNG)   
-![2](https://user-images.githubusercontent.com/55940552/101288908-75c57480-383c-11eb-85c9-6936773f43d5.PNG)   
-![3](https://user-images.githubusercontent.com/55940552/101288909-765e0b00-383c-11eb-9997-1118cd08bb93.PNG)   
+![2](https://user-images.githubusercontent.com/55940552/101288908-75c57480-383c-11eb-85c9-6936773f43d5.PNG)    
 
 #### 영상 이진화 타입 - 전역 이진화   
 		1. THRESH_BINARY : 임계 값 이상이면 설정한 값으로, 이하면 0으로 처리   
