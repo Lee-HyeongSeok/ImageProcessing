@@ -11,16 +11,16 @@ void VideoError(VideoCapture cap) {
 	}
 }
 int main() {
-	VideoCapture cap("D:/3-2ÇĞ±â/¿µ»óÃ³¸®-¾È¼¼Á¾/ÇÁ·ÎÁ§Æ® ¿µ»ó/anew.mp4");
+	VideoCapture cap("ì˜ìƒ ê²½ë¡œ");
 	VideoError(cap);
 
 	
 	/*
-	1. Ä³´Ï
-	2. ÀÌÁøÈ­
-	3. ÇãÇÁ
-	4. ¸¶½ºÅ©
-	5. ¿µ»ó ÇÕ¼º
+	1. ìºë‹ˆ
+	2. ì´ì§„í™”
+	3. í—ˆí”„
+	4. ë§ˆìŠ¤í¬
+	5. ì˜ìƒ í•©ì„±
 	*/
 	Mat dst, convert_color;
 	Mat frame;
@@ -29,10 +29,10 @@ int main() {
 	for (;;) {
 		cap >> frame;
 
-		// Ä³´Ï ¿¡Áö °ËÃâ 
+		// ìºë‹ˆ ì—ì§€ ê²€ì¶œ 
 		Canny(frame, dst, 100, 200); 
 
-		// ¸¶½ºÅ© Ã³¸® 
+		// ë§ˆìŠ¤í¬ ì²˜ë¦¬ 
 		Mat mask = Mat::zeros(dst.size(), dst.type());
 		vector<Point> points;
 		points.push_back(Point(dst.cols / 2.2, dst.rows / 2.0));
@@ -47,7 +47,7 @@ int main() {
 		vector<Vec4i> lines;
 		HoughLinesP(fin, lines, 1, CV_PI / 180, 50, 55, 5);
 
-		// È­¼Ò »ö º¯°æ 
+		// í™”ì†Œ ìƒ‰ ë³€ê²½ 
 		cvtColor(fin, convert_color, CV_GRAY2BGR);
 		for (size_t i = 0; i < lines.size(); i++) {
 			Vec4i l = lines[i];
